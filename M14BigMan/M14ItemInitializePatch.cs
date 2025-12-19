@@ -24,15 +24,15 @@ namespace M14BigMan
                     return;
                 }
 
-                // 如果已经是6个插槽，说明已经修复过了，跳过
-                if (__instance.Slots.Count == 6)
+                // 如果已经是7个插槽，说明已经修复过了，跳过
+                if (__instance.Slots.Count == M14Config.M14_TARGET_SLOT_COUNT)
                 {
-                    UnityEngine.Debug.Log("[M14BigMan Mod] M14已有6个插槽，跳过修复");
+                    UnityEngine.Debug.Log($"[M14BigMan Mod] M14已有{M14Config.M14_TARGET_SLOT_COUNT}个插槽，跳过修复");
                     return;
                 }
 
-                // 如果不是4个插槽，说明配置异常
-                if (__instance.Slots.Count != 4)
+                // 如果不是5个插槽，说明配置异常
+                if (__instance.Slots.Count != M14Config.M14_ORIGINAL_SLOT_COUNT)
                 {
                     UnityEngine.Debug.LogWarning($"[M14BigMan Mod] M14插槽数量异常: {__instance.Slots.Count}");
                     return;

@@ -6,6 +6,16 @@ namespace M14BigMan
 {
     public static class M14Config
     {
+        /// <summary>
+        /// M14原始插槽数量（游戏更新后的默认值）
+        /// </summary>
+        public const int M14_ORIGINAL_SLOT_COUNT = 5;
+        
+        /// <summary>
+        /// M14目标插槽数量（添加Stock和Tec后）
+        /// </summary>
+        public const int M14_TARGET_SLOT_COUNT = 7;
+        
         public static int CustomValue = 17781;
         
         // 硬编码插槽Tag配置
@@ -23,17 +33,16 @@ namespace M14BigMan
         // 多语言描述配置
         private static readonly Dictionary<SystemLanguage, string> Descriptions = new Dictionary<SystemLanguage, string>
         {
-            [SystemLanguage.Chinese] = "制式精准战斗步枪，虽然是全自动，但还有很强的威力。",
-            [SystemLanguage.ChineseSimplified] = "制式精准战斗步枪，虽然是全自动，但还有很强的威力。",
-            [SystemLanguage.ChineseTraditional] = "制式精準戰鬥步槍，雖然是全自動，但還有很強的威力。",
-            [SystemLanguage.English] = "Standard precision combat rifle, although fully automatic, still has strong power.",
-            [SystemLanguage.Japanese] = "制式精密戦闘ライフル、フルオートですが、依然として強力な威力があります。",
-            [SystemLanguage.Korean] = "제식 정밀 전투 소총, 완전 자동이지만 여전히 강력한 위력을 가지고 있습니다.",
-            [SystemLanguage.Russian] = "Стандартная точная боевая винтовка, хотя полностью автоматическая, все еще обладает сильной мощностью.",
+            [SystemLanguage.Chinese] = "虽然伤害高，但是射速也很快鸭~",
+            [SystemLanguage.ChineseSimplified] = "虽然伤害高，但是射速也很快鸭~",
+            [SystemLanguage.ChineseTraditional] = "雖然傷害高，但射速也很快鴨~",
+            [SystemLanguage.English] = "High damage, but fires quacking fast!",
+            [SystemLanguage.Japanese] = "高ダメージだけど、発射速度もカモン早いよ！",
+            [SystemLanguage.Korean] = "데미지는 높지만, 연사력이 덜덜 빠르덕!",
+            [SystemLanguage.Russian] = "Урон высокий, но и скорострельность утиная быстрая!",
         };
-        
         // 默认描述
-        private const string DefaultDescription = "Standard precision combat rifle, although fully automatic, still has strong power.";
+        private const string DefaultDescription = "虽然伤害高，但是射速也很快鸭~";
         
         // 根据当前游戏语言获取描述
         public static string GetDescription()

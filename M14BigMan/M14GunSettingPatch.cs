@@ -30,9 +30,9 @@ namespace M14BigMan
             UnityEngine.Debug.Log($"[M14 Debug] 找到M14! TypeID={item.TypeID}, 当前开火模式={gunSetting.triggerMode}");
             
             // 1. 修改开火模式
-            var oldMode = gunSetting.triggerMode;
-            gunSetting.triggerMode = ItemSetting_Gun.TriggerModes.auto;
-            UnityEngine.Debug.Log($"[M14 Mod] 已修改M14开火模式: {oldMode} → {gunSetting.triggerMode}");
+            // var oldMode = gunSetting.triggerMode;
+            // gunSetting.triggerMode = ItemSetting_Gun.TriggerModes.auto;
+            // UnityEngine.Debug.Log($"[M14 Mod] 已修改M14开火模式: {oldMode} → {gunSetting.triggerMode}");
             
             // 2. 修改插槽配置
             ModifyM14Slots(item);
@@ -55,15 +55,15 @@ namespace M14BigMan
         
         // ==================== 插槽修改核心逻辑 ====================
         /// <summary>
-        /// 修改M14的插槽配置：从4个扩展到6个
-        /// 原始插槽：Scope、Muzzle、Grip、Mag
-        /// 修改后：Scope、Muzzle、Grip、Stock、Tec、Mag
+        /// 修改M14的插槽配置：从5个扩展到7个
+        /// 原始插槽：Scope、Muzzle、Grip、Mag、Special
+        /// 修改后：Scope、Muzzle、Grip、Stock、Tec、Mag、Special
         /// </summary>
         internal static void ModifyM14Slots(ItemStatsSystem.Item item)
         {
-            if (item.Slots == null || item.Slots.Count != 4)
+            if (item.Slots == null || item.Slots.Count != M14Config.M14_ORIGINAL_SLOT_COUNT)
             {
-                UnityEngine.Debug.LogWarning($"[M14 Mod] M14插槽配置异常（期望4个，实际{item.Slots?.Count ?? 0}个），无法修改");
+                UnityEngine.Debug.LogWarning($"[M14 Mod] M14插槽配置异常（期望{M14Config.M14_ORIGINAL_SLOT_COUNT}个，实际{item.Slots?.Count ?? 0}个），无法修改");
                 return;
             }
             
@@ -87,7 +87,7 @@ namespace M14BigMan
             stockSlot.Initialize(item.Slots);
             tecSlot.Initialize(item.Slots);
             
-            UnityEngine.Debug.Log($"[M14 Mod] 已为M14添加插槽: Stock和Tec，总插槽数: {item.Slots.Count}");
+            UnityEngine.Debug.Log($"[M14 Mod] 已为M14添加插槽: Stock和Tec，总插槽数: {item.Slots.Count}/{M14Config.M14_TARGET_SLOT_COUNT}");
         }
         
         /// <summary>
